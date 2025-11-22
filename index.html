@@ -425,6 +425,85 @@
       color: var(--freya_dark_grey);
       margin-top: 1rem;
     }
+    /* Carousel Styling */
+    .carousel {
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .carousel-inner {
+      border-radius: 15px;
+    }
+    .carousel-item {
+      position: relative;
+    }
+    .carousel-item img {
+      border-radius: 15px;
+      object-fit: cover;
+      width: 100%;
+      height: 500px;
+      aspect-ratio: 16/9;
+    }
+    .carousel-item-placeholder {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border-radius: 15px;
+      background-image: url('assets/monstera_leaf.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+    .carousel-placeholder-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--freya_dark_grey);
+      text-align: center;
+      z-index: 10;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      top: auto;
+      bottom: 20px;
+      height: 30px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: var(--freya_dark_green);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background-size: 50%;
+      transition: all 0.3s ease;
+    }
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+      background-color: var(--freya_light_green);
+      transform: scale(1.1);
+    }
+    .carousel-indicators button {
+      background-color: var(--freya_dark_grey);
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      transition: all 0.3s ease;
+    }
+    .carousel-indicators button.active {
+      background-color: var(--freya_dark_green);
+      transform: scale(1.2);
+    }
+    @media (max-width: 768px) {
+      .carousel-item img {
+        height: 300px;
+      }
+      .carousel-item-placeholder {
+        height: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -474,7 +553,35 @@
       <div class="row align-items-center g-5">
         <!-- Image Column (appears first on mobile, left on desktop) -->
         <div class="col-lg-6 order-1 order-lg-1">
-          <img src="assets/freya-system.png" alt="Freya Vivarium Control System" class="img-fluid rounded shadow">
+          <!-- Carousel -->
+          <div id="systemCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#systemCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#systemCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            
+            <!-- Slides -->
+            <div class="carousel-inner rounded">
+              <div class="carousel-item active">
+                <img src="assets/freya-system.png" class="d-block w-100 rounded" alt="Freya Vivarium Control System">
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-item-placeholder"></div>
+                <div class="carousel-placeholder-text">Image Unavailable</div>
+              </div>
+            </div>
+            
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#systemCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#systemCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
         <!-- Text Column (appears second on mobile, right on desktop) -->
         <div class="col-lg-6 order-2 order-lg-2">
