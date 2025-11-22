@@ -58,6 +58,22 @@
       scroll-snap-type: y mandatory;
       overflow-y: scroll;
       height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background-image: url('assets/monstera_leaf.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+      transform: rotate(155deg);
     }
     body::-webkit-scrollbar {
       display: none; /* Chrome, Safari, Opera */
@@ -200,6 +216,12 @@
       .landing-section, .footer {
         background: var(--freya_black) !important;
       }
+      body::before {
+        width: 400px;
+        height: 400px;
+        bottom: -15%;
+        right: -10%;
+      }
       .hero-container {
         flex-direction: column;
         height: auto;
@@ -303,23 +325,24 @@
       line-height: 1.8;
     }
     .partner-info {
-      background-color: var(--freya_black);
-      color: var(--freya_light_grey);
+      background-color: var(--freya_light_grey);
+      color: var(--freya_black);
       border-radius: 15px;
       padding: 2.5rem;
-      border: 2px solid var(--freya_dark_grey);
+      border: 1px solid var(--freya_light_grey);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     .partner-info h3 {
       font-weight: 700;
       font-size: 1.75rem;
       margin-bottom: 1.5rem;
-      color: var(--freya_light_green);
+      color: var(--freya_dark_green);
     }
     .partner-info ul {
       font-size: 1.1rem;
       line-height: 2;
       margin-bottom: 2rem;
-      color: var(--freya_light_grey);
+      color: var(--freya_black);
     }
     .partner-info ul li {
       margin-bottom: 0.75rem;
@@ -346,23 +369,24 @@
       margin-right: 0.5rem;
     }
     .cta-box {
-      background-color: var(--freya_black);
-      color: var(--freya_light_grey);
+      background-color: var(--freya_light_grey);
+      color: var(--freya_black);
       border-radius: 15px;
       padding: 2.5rem;
       text-align: center;
-      border: 2px solid var(--freya_dark_grey);
+      border: 1px solid var(--freya_light_grey);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     .cta-box h3 {
       font-weight: 700;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: var(--freya_light_green);
+      color: var(--freya_dark_green);
     }
     .cta-box p {
       font-weight: 400;
       font-size: 1.1rem;
-      color: var(--freya_light_grey);
+      color: var(--freya_black);
       line-height: 1.7;
     }
     .footer {
@@ -536,7 +560,7 @@
   <!-- Integrators Section -->
   <section id="partners" class="integrators-section d-flex align-items-center py-5">
     <div class="container">
-      <h2>Professional Vivarium Automation</h2>
+      <h2>Build Your Dream Vivarium</h2>
       <p class="lead">
         Freya provides open-source, enterprise-grade automation for professional vivarium builders and their clients.
       </p>
