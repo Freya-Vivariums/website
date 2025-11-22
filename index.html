@@ -32,7 +32,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
     :root {
       --freya_dark_green: #70B62D;
@@ -61,6 +61,44 @@
     }
     body::-webkit-scrollbar {
       display: none; /* Chrome, Safari, Opera */
+    }
+    .gradient-bg {
+      background: radial-gradient(ellipse 100% 500% at right, var(--freya_light_green) 0%, var(--freya_black) 30%, var(--freya_black) 100%);
+    }
+    .navbar {
+      position: fixed;
+      top: -100px;
+      left: 0;
+      right: 0;
+      background-color: var(--freya_black);
+      padding: 1rem 0;
+      z-index: 1000;
+      transition: top 0.3s ease-in-out;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .navbar.visible {
+      top: 0;
+    }
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--freya_light_grey);
+    }
+    .navbar-logo img {
+      width: 40px;
+      height: auto;
+      margin-right: 0.75rem;
+    }
+    .navbar-logo-text {
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--freya_light_grey);
     }
     .logo-text{
       font-weight: 900;
@@ -94,7 +132,6 @@
       align-items: center;
       justify-content: center;
       padding: 0;
-      background-color: var(--freya_black);
       scroll-snap-align: start;
       scroll-snap-stop: always;
     }
@@ -111,7 +148,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 4rem;
-      color: #ffffff;
+      color: var(--freya_light_grey);
     }
     .hero-logo {
       display: flex;
@@ -126,14 +163,14 @@
       font-weight: 900;
       font-size: 2rem;
       margin-left: 1rem;
-      color: #ffffff;
+      color: var(--freya_light_grey);
     }
     .hero-headline {
       font-size: 3rem;
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 1.5rem;
-      color: #ffffff;
+      color: var(--freya_light_grey);
     }
     .hero-headline .highlight {
       color: var(--freya_light_green);
@@ -142,7 +179,7 @@
       font-size: 1.3rem;
       font-weight: 400;
       line-height: 1.7;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--freya_light_grey);
       margin-bottom: 0;
     }
     .hero-image-container {
@@ -160,6 +197,9 @@
       display: block;
     }
     @media (max-width: 992px) {
+      .landing-section, .footer {
+        background: var(--freya_black) !important;
+      }
       .hero-container {
         flex-direction: column;
         height: auto;
@@ -263,7 +303,8 @@
       line-height: 1.8;
     }
     .partner-info {
-      background-color: var(--freya_light_grey);
+      background-color: var(--freya_black);
+      color: var(--freya_light_grey);
       border-radius: 15px;
       padding: 2.5rem;
       border: 2px solid var(--freya_dark_grey);
@@ -272,20 +313,41 @@
       font-weight: 700;
       font-size: 1.75rem;
       margin-bottom: 1.5rem;
-      color: var(--freya_black);
+      color: var(--freya_light_green);
     }
     .partner-info ul {
       font-size: 1.1rem;
       line-height: 2;
       margin-bottom: 2rem;
-      color: var(--freya_black);
+      color: var(--freya_light_grey);
     }
     .partner-info ul li {
       margin-bottom: 0.75rem;
     }
+    .documentation-links {
+      list-style: none;
+      padding-left: 0;
+    }
+    .documentation-links li {
+      margin-bottom: 0.5rem;
+    }
+    .documentation-links a {
+      color: var(--freya_dark_green);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .documentation-links a:hover {
+      color: var(--freya_light_green);
+      transform: translateX(5px);
+    }
+    .documentation-links i {
+      width: 20px;
+      margin-right: 0.5rem;
+    }
     .cta-box {
       background-color: var(--freya_black);
-      color: #ffffff;
+      color: var(--freya_light_grey);
       border-radius: 15px;
       padding: 2.5rem;
       text-align: center;
@@ -300,12 +362,11 @@
     .cta-box p {
       font-weight: 400;
       font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--freya_light_grey);
       line-height: 1.7;
     }
     .footer {
-      background-color: var(--freya_black);
-      color: #ffffff;
+      color: var(--freya_light_grey);
       padding: 2.5rem 0 1.5rem;
       margin-top: auto;
       scroll-snap-align: end;
@@ -323,15 +384,15 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background-color: var(--freya_dark_green);
-      color: #ffffff;
+      background-color: var(--freya_light_green);
+      color: var(--freya_black);
       text-decoration: none;
       font-size: 1.5rem;
       transition: all 0.3s ease;
     }
     .footer-social-btn:hover {
-      background-color: var(--freya_light_green);
-      color: #ffffff;
+      background-color: var(--freya_dark_green);
+      color: var(--freya_black);
       transform: scale(1.1);
     }
     .footer-copyright {
@@ -343,8 +404,18 @@
   </style>
 </head>
 <body>
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-content">
+      <a href="#home" class="navbar-logo">
+        <img src="assets/Freya_symbol.png" alt="Freya Logo">
+        <div class="navbar-logo-text">FREYA VIVARIUMS</div>
+      </a>
+    </div>
+  </nav>
+
   <!-- Landing Section -->
-  <section id="home" class="landing-section">
+  <section id="home" class="landing-section gradient-bg">
     <div class="hero-container">
       <!-- Left: Content -->
       <div class="hero-content">
@@ -465,43 +536,70 @@
   <!-- Integrators Section -->
   <section id="partners" class="integrators-section d-flex align-items-center py-5">
     <div class="container">
-      <h2>Complete Your Vision with Expert Tank Builders</h2>
+      <h2>Professional Vivarium Automation</h2>
       <p class="lead">
-        Freya provides the brain, but expert tank builders bring the complete vivarium to life. 
-        Our partners combine cutting-edge automation with masterful craftsmanship.
+        Freya provides open-source, enterprise-grade automation for professional vivarium builders and their clients.
       </p>
       
-      <div class="row g-5 align-items-center">
+      <div class="row g-5 align-items-stretch">
         <div class="col-lg-6">
           <div class="partner-info">
-            <h3>Why Work with a Freya Integrator?</h3>
-            <ul>
-              <li><strong>Expert Design:</strong> Years of experience creating thriving habitats</li>
-              <li><strong>Hardware Selection:</strong> Professional-grade lighting, misting, and heating systems</li>
-              <li><strong>Custom Solutions:</strong> Tailored to your specific species and environment</li>
-              <li><strong>Seamless Integration:</strong> Freya control systems expertly installed and configured</li>
-              <li><strong>Ongoing Support:</strong> Knowledge and guidance for long-term success</li>
-            </ul>
+            <h3><i class="fas fa-code"></i> Complete Technical Resources</h3>
             <p>
-              Tank builders understand the delicate balance of humidity, temperature, lighting, and airflow. 
-              Combined with Freya's precision automation, they create environments where your plants and animals truly thrive.
+              <strong>Full transparency, zero barriers.</strong> The Freya project provides you with complete access 
+              to source code, technical specifications, and integration documentation to confidently complete your builds.
+            </p>
+            <p class="mb-3">
+              <strong>Professional documentation library:</strong>
+            </p>
+            <ul class="documentation-links">
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fab fa-github"></i> Source Code Repository</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-book"></i> Installation & Deployment Guide</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-microchip"></i> Hardware Specifications</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-plug"></i> Electrical Diagrams & Schematics</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-cog"></i> System Configuration Documentation</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-code"></i> API Reference & Integration Guide</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-wrench"></i> Technical Troubleshooting Resources</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-puzzle-piece"></i> Component Compatibility Matrix</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-thermometer-half"></i> Sensor Calibration Protocols</a></li>
+              <li><a href="https://reddit.com/r/FreyaVivariums" target="_blank"><i class="fab fa-reddit-alien"></i> Professional Community & Support</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-download"></i> Software Releases & Updates</a></li>
+              <li><a href="https://github.com/Freya-Vivariums" target="_blank"><i class="fas fa-lightbulb"></i> Reference Implementation Gallery</a></li>
+            </ul>
+            <p class="mt-3">
+              <strong>Designed for professionals.</strong> Our documentation supports integrators, engineers, and builders 
+              who demand precision, reliability, and complete system control.
             </p>
           </div>
         </div>
         
         <div class="col-lg-6">
           <div class="cta-box">
-            <h3>Ready to Build Your Dream Vivarium?</h3>
+            <h3><i class="fas fa-users"></i> Team Up with a Professional</h3>
             <p>
-              Contact your local vivarium builder and ask them about integrating Freya into your project. 
-              Together, we can create something extraordinary.
+              Prefer expert guidance? Work with experienced vivarium builders who integrate Freya systems 
+              as part of complete, turnkey solutions.
             </p>
-            <p class="mt-4 mb-4">
-              <i class="fas fa-users" style="font-size: 4rem; color: var(--freya_dark_green);"></i>
+            <p class="mt-4">
+              <strong>Professional partners offer:</strong>
             </p>
-            <p>
-              <strong>Are you a tank builder interested in becoming a Freya partner?</strong><br>
-              Reach out to us on GitHub or Reddit to learn more about our integration program.
+            <ul class="text-start">
+              <li>Complete vivarium design and construction</li>
+              <li>Expert species and habitat consultation</li>
+              <li>Professional-grade equipment selection</li>
+              <li>Freya system installation and configuration</li>
+              <li>Ongoing maintenance and support</li>
+            </ul>
+            <p class="mt-4">
+              Contact your local vivarium builder and ask them about integrating Freya into your custom build. 
+              Together, you can create something truly extraordinary.
+            </p>
+            <hr style="border-color: var(--freya_dark_grey); margin: 2rem 0;">
+            <p class="mt-4">
+              <strong>Are you a vivarium builder?</strong><br>
+              Join our partner network and offer Freya-powered automation to your clients. 
+              Reach out on <a href="https://github.com/Freya-Vivariums" target="_blank" style="color: var(--freya_light_green); text-decoration: underline;">GitHub</a> 
+              or <a href="https://reddit.com/r/FreyaVivariums" target="_blank" style="color: var(--freya_light_green); text-decoration: underline;">Reddit</a> to learn more.
             </p>
           </div>
         </div>
@@ -510,7 +608,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer gradient-bg">
     <div class="container">
       <div class="footer-social-links">
         <a href="https://github.com/Freya-Vivariums" target="_blank" class="footer-social-btn" aria-label="GitHub">
@@ -528,6 +626,25 @@
       </div>
     </div>
   </footer>
+
+  <!-- Sticky Navbar Script -->
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+    const landingSection = document.getElementById('home');
+    
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const landingHeight = landingSection.offsetHeight;
+      
+      // Show navbar when scrolled past the landing section
+      if (scrollTop > landingHeight * 0.5) {
+        navbar.classList.add('visible');
+      } else {
+        navbar.classList.remove('visible');
+      }
+    });
+  </script>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
