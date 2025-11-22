@@ -45,10 +45,22 @@
     }
     html {
       scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    html::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
     }
     body {
       font-family: 'Lato', sans-serif;
       font-weight: bold;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+    body::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
     }
     .logo-text{
       font-weight: 900;
@@ -83,12 +95,14 @@
       justify-content: center;
       padding: 0;
       background-color: var(--freya_black);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
     .hero-container {
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      align-items: stretch;
+      align-items: center;
       gap: 0;
     }
     .hero-content {
@@ -136,12 +150,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 3rem;
     }
     .hero-image-container img {
       width: 100%;
       height: auto;
-      max-height: 100vh;
+      max-width: 600px;
       object-fit: contain;
       display: block;
     }
@@ -176,6 +190,8 @@
     .content-section {
       min-height: 100vh;
       background-color: var(--freya_light_grey);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
     .system-description {
       font-weight: 400;
@@ -188,6 +204,8 @@
     .values-section {
       min-height: 100vh;
       background-color: #ffffff;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
     .values-section h2 {
       font-weight: 700;
@@ -227,6 +245,8 @@
       min-height: 100vh;
       background-color: var(--freya_light_grey);
       color: var(--freya_black);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
     .integrators-section h2 {
       font-weight: 700;
@@ -288,6 +308,7 @@
       color: #ffffff;
       padding: 2.5rem 0 1.5rem;
       margin-top: auto;
+      scroll-snap-align: end;
     }
     .footer-social-links {
       display: flex;
@@ -498,9 +519,12 @@
         <a href="https://reddit.com/r/FreyaVivariums" target="_blank" class="footer-social-btn" aria-label="Reddit">
           <i class="fab fa-reddit-alien"></i>
         </a>
+        <a href="https://certification.oshwa.org/be000021.html" target="_blank" class="footer-social-btn" aria-label="Open Hardware Certification">
+          <i class="fab fa-osi"></i>
+        </a>
       </div>
       <div class="footer-copyright">
-        <p class="mb-0">&copy; 2025 Freya Vivariums. Open Source. Community Driven.</p>
+        <p class="mb-0">&copy; 2025 Freya Vivariums. Open Source. Community Driven. | <a href="https://certification.oshwa.org/be000021.html" target="_blank" style="color: var(--freya_light_green); text-decoration: none;">OSHW Certified BE000021</a></p>
       </div>
     </div>
   </footer>
