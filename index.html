@@ -198,6 +198,40 @@
       color: var(--freya_light_grey);
       margin-bottom: 0;
     }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .hero-buttons .btn {
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .hero-buttons .btn-primary {
+      background-color: var(--freya_dark_green);
+      border-color: var(--freya_dark_green);
+      color: var(--freya_black);
+    }
+    .hero-buttons .btn-primary:hover {
+      background-color: var(--freya_light_green);
+      border-color: var(--freya_light_green);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(112, 182, 45, 0.4);
+    }
+    .hero-buttons .btn-outline-light {
+      background-color: transparent;
+      border: 2px solid var(--freya_light_grey);
+      color: var(--freya_light_grey);
+    }
+    .hero-buttons .btn-outline-light:hover {
+      background-color: var(--freya_light_grey);
+      border-color: var(--freya_light_grey);
+      color: var(--freya_black);
+      transform: translateY(-2px);
+    }
     .hero-image-container {
       flex: 1;
       display: flex;
@@ -247,6 +281,14 @@
       }
       .hero-image-container img {
         max-height: 60vh;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
       }
     }
     .content-section {
@@ -537,6 +579,12 @@
         <p class="hero-subheadline">
           Build thriving ecosystems with the Freya Vivarium Control System – a dedicated computer that orchestrates the climate behind the glass. It brings all environment-sensing and control hardware together into a single, local mind for your tank: precision automation you own and understand, so life inside your vivarium can truly thrive.
         </p>
+        
+        <!-- Hero CTA Buttons -->
+        <div class="hero-buttons mt-4">
+          <a href="#system" class="btn btn-primary btn-lg me-3">Learn More</a>
+          <a href="#partners" class="btn btn-outline-light btn-lg">Get Started</a>
+        </div>
       </div>
       
       <!-- Right: Image -->
