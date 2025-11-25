@@ -312,10 +312,17 @@
       scroll-snap-align: start;
       scroll-snap-stop: always;
     }
+    .values-logo {
+      width: 80px;
+      height: auto;
+      display: block;
+      margin: 0 auto 1.5rem;
+      filter: drop-shadow(0 2px 8px rgba(112, 182, 45, 0.2));
+    }
     .values-section h2 {
       font-weight: 700;
       font-size: 2.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       text-align: center;
     }
     .value-card {
@@ -667,10 +674,13 @@
   <!-- Values Section -->
   <section id="values" class="values-section d-flex align-items-center py-5">
     <div class="container">
-      <h2>Your Vivarium. Your Control. Your Freedom.</h2>
-      <p class="lead text-center mb-5" style="max-width: 900px; margin: 0 auto 3rem; font-weight: 400; line-height: 1.8; color: #495057;">
-        With Freya, you have an assistant that controls the environment for you – while you stay fully in control of how your vivarium works, evolves, and grows.
-      </p>
+      <div class="values-header text-center mb-5">
+        <img src="assets/Freya_symbol.png" alt="Freya Logo" class="values-logo mb-3">
+        <h2>Your Vivarium. Your Control. Your Freedom.</h2>
+        <p class="lead" style="max-width: 900px; margin: 0 auto; font-weight: 400; line-height: 1.8; color: #495057;">
+          With Freya, you have an assistant that controls the environment for you – while you stay fully in control of how your vivarium works, evolves, and grows.
+        </p>
+      </div>
       <div class="row g-4">
         <!-- Open Source Card -->
         <div class="col-md-6 col-lg-4">
